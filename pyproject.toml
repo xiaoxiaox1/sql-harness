@@ -1,0 +1,33 @@
+[project]
+name = "sql-harness"
+version = "0.1.0"
+description = "Interactive SQL Agent harness (NL → schema → SQL → execute)"
+readme = "README.md"
+authors = [
+    { name = "xiaoxiaox1", email = "judiathomcsacarthy@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.0",
+    "pymysql>=1.1.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+sql-harness = "sql_harness.slices.chat.app:main"
+
+[build-system]
+requires = ["uv_build>=0.9.18,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+package = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
